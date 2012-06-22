@@ -57,7 +57,7 @@ module ActiveUUID
     included do
       before_create :generate_uuid_if_needed
 
-      set_primary_key "id"
+      self.primary_key = "id"
       serialize :id, ActiveUUID::UUIDSerializer.new
       
       def generate_uuid_if_needed
@@ -100,8 +100,5 @@ module ActiveUUID
       end
     end
 
-    module InstanceMethods
-    end
- 
   end
 end
